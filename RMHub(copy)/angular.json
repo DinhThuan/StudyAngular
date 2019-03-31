@@ -1,0 +1,241 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "rmhub-web-client": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/service-worker.js",
+              {
+                "glob": "**/*",
+                "input": "config",
+                "output": "/config"
+              },
+              {
+                "glob": "en.json",
+                "input": "i18n/dist",
+                "output": "/i18n"
+              },
+              {
+                "glob": "de.json",
+                "input": "i18n/dist",
+                "output": "/i18n"
+              },
+              {
+                "glob": "fr.json",
+                "input": "i18n/dist",
+                "output": "/i18n"
+              },
+              {
+                "glob": "it.json",
+                "input": "i18n/dist",
+                "output": "/i18n"
+              }
+            ],
+            "styles": [
+              "src/assets/global/plugins/font-awesome/css/font-awesome.min.css",
+              "src/assets/global/plugins/simple-line-icons/simple-line-icons.min.css",
+              "src/assets/global/plugins/bootstrap/css/bootstrap.min.css",
+              "src/assets/global/plugins/uniform/css/uniform.default.css",
+              "src/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css",
+              "src/assets/global/css/components.css",
+              "src/assets/global/css/plugins.css",
+              "src/assets/admin/layout/css/layout.css",
+              "src/assets/admin/layout/css/themes/darkblue.css",
+              "src/assets/admin/layout/css/custom.css"
+            ],
+            "scripts": [
+              "src/assets/global/plugins/jquery.min.js",
+              "src/assets/global/plugins/jquery-migrate.min.js",
+              "src/assets/global/plugins/jquery-ui/jquery-ui.min.js",
+              "src/assets/global/plugins/bootstrap/js/bootstrap.min.js",
+              "src/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js",
+              "src/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
+              "src/assets/global/plugins/jquery.blockui.min.js",
+              "src/assets/global/plugins/jquery.cokie.min.js",
+              "src/assets/global/plugins/uniform/jquery.uniform.min.js",
+              "src/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js",
+              "src/assets/global/scripts/metronic.js",
+              "src/assets/admin/layout/scripts/layout.js",
+              "src/assets/admin/layout/scripts/quick-sidebar.js",
+              "src/assets/admin/layout/scripts/demo.js",
+              "node_modules/froala-editor/js/froala_editor.pkgd.min.js"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "serviceWorker": true,
+              "showCircularDependencies": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "test": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "serviceWorker": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "rmhub-web-client:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "rmhub-web-client:build:production"
+            },
+            "test": {
+              "browserTarget": "rmhub-web-client:build:test"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "rmhub-web-client:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico",
+              "src/service-worker.js",
+              {
+                "glob": "**/*",
+                "input": "config",
+                "output": "/config"
+              },
+              {
+                "glob": "en.json",
+                "input": "i18n/dist",
+                "output": "/i18n"
+              },
+              {
+                "glob": "de.json",
+                "input": "i18n/dist",
+                "output": "/i18n"
+              },
+              {
+                "glob": "fr.json",
+                "input": "i18n/dist",
+                "output": "/i18n"
+              },
+              {
+                "glob": "it.json",
+                "input": "i18n/dist",
+                "output": "/i18n"
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles"
+              ]
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "rmhub-web-client-e2e": {
+      "root": "e2e",
+      "sourceRoot": "e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "rmhub-web-client:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "RMHUB APP",
+  "schematics": {
+    "@ngrx/schematics:component": {
+      "prefix": "RMHUB",
+      "styleext": "scss"
+    },
+    "@ngrx/schematics:directive": {
+      "prefix": "RMHUB",
+      "styleext": "scss"
+    }
+  }
+}
+

@@ -1,0 +1,10 @@
+<form [formGroup]="profileForm" novalidate="true" autocomplete="off" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="">Firstname </label>
+    <input type="text" class="form-control" id="" placeholder="" formControlName="firstName" name="firstName">
+    <app-error-validate [control]="profileForm.controls.firstName" [control-name]="'firstName'"></app-error-validate>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success" [disabled]="!profileForm.valid">Save</button>
+  </div>
+</form>

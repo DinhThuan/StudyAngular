@@ -1,0 +1,40 @@
+$border-color:#ddd;
+$padding-all:8px 15px;
+
+.my-pagination /deep/ .ngx-pagination {
+   .current {
+      // background: red;
+      border: 1px solid #2199e8;
+      padding: $padding-all;
+   }
+
+   li {
+      float: left;
+      border: 1px solid $border-color;
+      margin-left: -1px;
+      border-left: none;
+
+      a {
+         padding: $padding-all;
+         text-decoration: none;
+      }
+   }
+
+   li:first-child a {
+      border-left: 1px solid $border-color;
+      padding: $padding-all;
+   }
+
+   .disabled {
+      padding: $padding-all;
+      color: #cacaca;
+      cursor: not-allowed;
+      border-left: 1px solid $border-color;
+   }
+}
+
+th,
+td {
+   padding-left: 10px;
+   padding-right: 10px;
+}

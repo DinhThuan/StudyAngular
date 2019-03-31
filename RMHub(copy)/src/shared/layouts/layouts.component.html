@@ -1,0 +1,41 @@
+<div class="wrapper-main" #wrapperContainer>
+   <div class="page-header-fixed page-quick-sidebar-over-content page-sidebar-closed-hide-logo">
+      <!-- BEGIN HEADER -->
+      <div class="page-header -i navbar navbar-fixed-top">
+         <rmhub-top-menu></rmhub-top-menu>
+      </div>
+      <!-- END HEADER -->
+      <div class="clearfix">
+      </div>
+      <!-- BEGIN CONTAINER -->
+      <div class="page-container">
+         <!-- BEGIN SIDEBAR -->
+         <div class="page-sidebar-wrapper">
+            <rmhub-left-sidebars></rmhub-left-sidebars>
+         </div>
+         <!-- END SIDEBAR -->
+         <!-- BEGIN CONTENT -->
+         <div class="page-content-wrapper">
+            <div class="page-content">
+               <!-- <rmhub-page-content></rmhub-page-content> -->
+               <router-outlet></router-outlet>
+            </div>
+         </div>
+         <!-- END CONTENT -->
+         <!-- BEGIN QUICK SIDEBAR -->
+         <div class="page-quick-sidebar-wrapper">
+            <div class="page-quick-sidebar">
+               <rmhub-right-sidebar></rmhub-right-sidebar>
+            </div>
+         </div>
+         <!-- END CONTAINER -->
+         <!-- BEGIN FOOTER -->
+         <div class="page-footer">
+            <app-footer></app-footer>
+         </div>
+         <!-- END FOOTER -->
+      </div>
+      <!-- END QUICK SIDEBAR -->
+   </div>
+</div>
+<!-- END BODY -->
