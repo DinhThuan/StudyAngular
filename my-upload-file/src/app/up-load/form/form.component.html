@@ -1,0 +1,52 @@
+<div class="container">
+   <div class="card">
+      <div class="card-header bg-success">
+         <h3>Angular 7 Image Preview before Upload:</h3>
+      </div>
+      <div class="card-body">
+         <form autocomplete="off">
+            <div class="form-group">
+               <span style="color:red;" *ngIf="message">{{message}}</span>
+               <input #fileUpLoad type="file" accept='image/*' (change)="preview(fileUpLoad.files)"
+                  [style.display]="'none'" />
+               <div style="position: relative; display: inline-block">
+                  <img [src]="imgUrl" height="200" class="img-thumbnail" *ngIf="imgUrl" width="100" height="100">
+                  <button class="btn btn-success btn-sm" type="button"
+                     style="position: absolute; right: 5px; bottom: 5px" (click)="fileUpLoad.click()"><i
+                        class="fas fa-upload"></i></button>
+               </div>
+            </div>
+         </form>
+      </div>
+      <div class="card-footer">Footer</div>
+   </div>
+
+   <hr>
+   <hr>
+
+   <div class="card">
+      <div class="card-header bg-danger">focus() input</div>
+      <div class="card-body">
+         <button (click)="showSearch()">Show Search</button>
+         <form>
+            <div>
+               <input #search type="text" />
+            </div>
+         </form>
+      </div>
+      <div class="card-footer">Footer</div>
+   </div>
+
+   <hr>
+   <hr>
+
+   <div class="card">
+      <div class="card-header bg-info">trigger</div>
+      <div class="card-body">
+         <input type="file" accept="image/*" #file>
+         <button (click)="file.click()">Upload file</button>
+      </div>
+      <div class="card-footer">Footer</div>
+   </div>
+
+</div>

@@ -17,6 +17,7 @@ export class PersonComponent implements OnInit {
   configPagination: any = {};
   arr: boolean[] = [];
   sortName: boolean = false;
+  arrItemDelete = [];
   constructor() {
     var str1 = "10";
     var str2 = "2";
