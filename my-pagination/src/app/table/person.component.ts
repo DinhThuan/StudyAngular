@@ -1,5 +1,5 @@
 import { Person } from './person';
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-person',
@@ -7,6 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@ang
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
+
+  @ViewChild('input') input: ViewChild;
 
   @Input() id: string;
   @Input() maxSize: number;
@@ -91,6 +93,15 @@ export class PersonComponent implements OnInit {
     } else {
       this.persons.sort(this.dynamicSort("name"));
     }
+  }
+
+  choise: boolean = false;
+  checkboxItem(event: any, index: number) {
+    // console.log(this.input);
+    // this.choise = event.target.checked;
+    // console.log(this.persons[index].check);
+    // this.persons[index].check = event.target.checked;
+    // console.log(this.persons[index].check);
   }
 
 }
